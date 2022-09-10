@@ -1,12 +1,10 @@
 import dotenv from 'dotenv'
 import express from 'express'
+import { runAllScrapers } from './services/scraper.service'
 
-import { runScraper } from './services/scrapers/worten.service'
+runAllScrapers().then(console.log)
 
 dotenv.config()
-
-runScraper()
-
 
 const app = express()
 const port = process.env.PORT

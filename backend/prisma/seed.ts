@@ -1,8 +1,9 @@
 import { PrismaClient } from '@prisma/client'
+import { CATEGORIES, PROVIDERS } from '../src/constants'
 const prisma = new PrismaClient()
 
 async function main() {
-    const providers = ['Worten']
+    const providers = [PROVIDERS.WORTEN]
     for (const provider of providers) {
         await prisma.provider.upsert({
             where: {
@@ -15,7 +16,7 @@ async function main() {
         })
     }
 
-    const categories = ['Esquentador', 'Termoacumulador']
+    const categories = [CATEGORIES.ESQUENTADOR, CATEGORIES.TERMOACUMULADOR]
     for (const category of categories) {
         await prisma.category.upsert({
             where: {
@@ -31,13 +32,13 @@ async function main() {
     const urls = [
         {
             url: 'https://www.worten.pt/grandes-eletrodomesticos/aquecimento-de-agua/esquentadores',
-            category: 'Esquentador',
-            provider: 'Worten'
+            category: CATEGORIES.ESQUENTADOR,
+            provider: PROVIDERS.WORTEN
         },
         {
             url: 'https://www.worten.pt/grandes-eletrodomesticos/aquecimento-de-agua/termoacumuladores',
-            category: 'Termoacumulador',
-            provider: 'Worten'
+            category: CATEGORIES.TERMOACUMULADOR,
+            provider: PROVIDERS.WORTEN
         },
     ]
 
