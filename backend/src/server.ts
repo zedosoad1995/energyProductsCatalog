@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import { runAllScrapers } from './services/scraper.service'
 
-runAllScrapers().then(console.log)
+runAllScrapers()
 
 dotenv.config()
 

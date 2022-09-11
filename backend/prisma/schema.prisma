@@ -15,13 +15,15 @@ model Product {
   discount   Float
   url        String
   brand      String
-  isDeleted  Boolean
+  isDeleted  Boolean  @default(false)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   provider   Provider @relation(fields: [providerId], references: [id])
   providerId String
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
+
+  @@unique([ean, providerId], name: "prodId")
 }
 
 model Provider {
