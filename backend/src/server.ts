@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import express from 'express'
+import express, { Express, Request, Response, NextFunction } from 'express'
 import routes from './routes'
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -14,6 +14,10 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(routes)
+
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    return res.status(500).json({ message: err.message })
+})
 
 app.listen(port, () => {
     console.log(`Server is listening on ${port}`)

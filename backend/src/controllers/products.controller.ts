@@ -7,7 +7,7 @@ const router = Router()
 export const getManyProducts = async (req: Request, res: Response, next: NextFunction) => {
     let resp
     try {
-        resp = await getProducts()
+        resp = await getProducts(req.query)
     } catch (err) {
         return next(err)
     }
