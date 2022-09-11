@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client'
 import prisma from '../../prisma/prisma-client'
 import { PROVIDERS } from '../constants'
 import { IProduct } from '../types/scraper'
-import * as wortenScraper from './scrapers/worten'
+import * as wortenScraper from '../helpers/scrapers/worten'
 
 const scrapers = {
     [PROVIDERS.WORTEN]: wortenScraper
