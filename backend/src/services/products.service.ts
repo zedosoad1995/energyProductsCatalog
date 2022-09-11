@@ -1,5 +1,5 @@
 import prisma from "../../prisma/prisma-client"
-import { addPagination } from "../helpers/queryUtils"
+import { addPagination, addSorting } from "../helpers/queryUtils"
 
 export const getProducts = async (query) => {
     let mainQuery = {
@@ -28,6 +28,7 @@ export const getProducts = async (query) => {
     }
 
     mainQuery = addPagination(mainQuery, query)
+    mainQuery = addSorting(mainQuery, query)
 
     const products = await prisma.product.findMany(mainQuery)
         .then(prods => prods.map(p => ({ ...p, category: p.category.name, provider: p.provider.name })))
