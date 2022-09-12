@@ -3,6 +3,7 @@ import _ from 'lodash'
 import { IWortenProductsCatalog } from '../../types/wortenScraper'
 import { IProduct } from '../../types/scraper'
 import { CATEGORIES, PROVIDERS } from '../../constants'
+import { firstLetterUpper } from '../strings'
 
 
 const axiosConfig = {
@@ -51,7 +52,7 @@ export const run = async (urlBase: string, category: string): Promise<IProduct[]
             return {
                 ean: prod.ean,
                 name: prod.name,
-                brand: prod.brand,
+                brand: firstLetterUpper(prod.brand),
                 price: prod.price,
                 discount: (1 - prod.price / prod.striked_price) * 100,
                 url: `https://www.worten.pt/${prod.default_url}`,

@@ -2,6 +2,10 @@ import prisma from "../../prisma/prisma-client"
 import { addFiltering, addPagination, addSorting } from "../helpers/queryUtils"
 
 export const getProducts = async (query) => {
+    if (query.isDeleted) {
+        query.isDeleted = query.isDeleted === 'true'
+    }
+
     let mainQuery = {
         select: {
             id: true,
@@ -41,3 +45,22 @@ export const getProducts = async (query) => {
         total: await prisma.product.count(countQuery)
     }
 }
+
+export const getAllBrands = async () => {
+    return {
+        data: await prisma.product.findMany({
+            where: {},
+            distinct: ['brand'],
+            select: {
+                brand: true
+            },
+            orderBy: {
+                brand: 'asc'
+            }
+        })
+            .then(res => res.map(data => data.brand)),
+    }
+}
+
+
+

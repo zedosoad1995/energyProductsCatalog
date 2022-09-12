@@ -25,8 +25,7 @@ export const addFiltering = (mainQuery: any, filters: any) => {
     let newQuery = JSON.parse(JSON.stringify(mainQuery))
 
     newQuery.where = Object.entries(filters).reduce((whereQuery, [k, v]) => {
-        console.log(k)
-        if (['ean', 'brand'].includes(k)) {
+        if (['ean', 'brand', 'isDeleted'].includes(k)) {
             whereQuery[k] = v
         } else if (['category', 'provider'].includes(k)) {
             whereQuery[k] = {

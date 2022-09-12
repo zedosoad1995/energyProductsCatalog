@@ -11,9 +11,10 @@ export default (
         const { field, order } = params.sort
 
         const query = {
-            page,
+            page: page - 1,
             limit: perPage,
             ...params.filter,
+            isDeleted: false,
             sortBy: field,
             order
         }

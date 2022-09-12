@@ -1,7 +1,8 @@
-import { Datagrid, List, NumberField, TextField, UrlField } from 'react-admin';
+import { Datagrid, List, NumberField, TextField, UrlField } from 'react-admin'
+import { ProductFilters } from './Filters'
 
 export const ProductList = () => (
-    <List>
+    <List filters={ProductFilters}>
         <Datagrid rowClick="edit">
             <TextField source="ean" />
             <TextField source="name" />

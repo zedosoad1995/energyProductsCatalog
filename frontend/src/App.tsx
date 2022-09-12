@@ -1,5 +1,5 @@
 import { Admin, Resource, ListGuesser } from 'react-admin'
-import { ProductList } from './components/reactAdmin/lists'
+import { ProductList } from './components/reactAdmin/Lists'
 import dataProvider from './services/reactAdminDataProvider'
 
 
