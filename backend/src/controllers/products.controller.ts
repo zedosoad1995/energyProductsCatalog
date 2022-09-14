@@ -1,7 +1,5 @@
-import { NextFunction, Request, Response, Router } from 'express'
-import { getAllBrands, getProducts } from '../services/products.service'
-
-const router = Router()
+import { NextFunction, Request, Response } from 'express'
+import { getProducts, getUniqueValuesFromField } from '../services/products.service'
 
 
 export const getManyProducts = async (req: Request, res: Response, next: NextFunction) => {
@@ -17,7 +15,17 @@ export const getManyProducts = async (req: Request, res: Response, next: NextFun
 export const getShortBrands = async (req: Request, res: Response, next: NextFunction) => {
     let resp
     try {
-        resp = await getAllBrands()
+        resp = await getUniqueValuesFromField(req.query, 'brand')
+    } catch (err) {
+        return next(err)
+    }
+    res.status(200).json({ data: resp })
+}
+
+export const getShortEan = async (req: Request, res: Response, next: NextFunction) => {
+    let resp
+    try {
+        resp = await getUniqueValuesFromField(req.query, 'ean')
     } catch (err) {
         return next(err)
     }

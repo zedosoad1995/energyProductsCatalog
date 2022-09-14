@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getManyProducts, getShortBrands } from '../controllers/products.controller'
+import { getManyProducts, getShortBrands, getShortEan } from '../controllers/products.controller'
 
 
 const router = Router()
@@ -10,6 +10,10 @@ router.get('/',
 
 router.get('/short/brands',
     getShortBrands
+)
+
+router.get('/short/ean',
+    getShortEan
 )
 
 export default router
