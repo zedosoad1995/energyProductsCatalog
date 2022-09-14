@@ -3,10 +3,10 @@ import express, { Express, Request, Response, NextFunction } from 'express'
 import routes from './routes'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import { runAllScrapers } from './services/scraper.service'
+import { runJobs } from './helpers/jobs'
 
 
-runAllScrapers()
+runJobs()
 
 dotenv.config()
 
