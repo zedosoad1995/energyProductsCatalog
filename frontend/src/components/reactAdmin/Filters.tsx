@@ -1,10 +1,10 @@
 import { UniqueFilterList } from './UniqueFilterList'
-import { TextInput } from 'react-admin'
+import { API_URL } from '../../constants'
 
 
 export const ProductFilters = [
-    <UniqueFilterList source="ean" mainUrl="http://localhost:9000/api/products/short/ean" />,
-    <UniqueFilterList source="brand" mainUrl="http://localhost:9000/api/products/short/brands" />,
-    <UniqueFilterList source="provider" mainUrl="http://localhost:9000/api/providers/short" />,
-    <UniqueFilterList source="category" mainUrl="http://localhost:9000/api/categories/short" />,
+    <UniqueFilterList source="ean" mainUrl={`${API_URL}/products/short/ean`} />,
+    <UniqueFilterList source="brand" mainUrl={`${API_URL}/products/short/brands`} />,
+    <UniqueFilterList source="provider" mainUrl={`${API_URL}/providers/short`} />,
+    <UniqueFilterList source="category" mainUrl={`${API_URL}/categories/short`} />,
 ]

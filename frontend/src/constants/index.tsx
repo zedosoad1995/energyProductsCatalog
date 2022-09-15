@@ -1,0 +1,1 @@
+export const API_URL = 'https://energy-products-api.up.railway.app'
