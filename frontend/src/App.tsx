@@ -5,9 +5,10 @@ import dataProvider from './services/reactAdminDataProvider'
 
 
 function App() {
-  return (<Admin dataProvider={dataProvider(API_URL)}>
-    <Resource name="products" list={ProductList} />
-  </Admin>)
+  return (
+    <Admin dataProvider={dataProvider(API_URL)}>
+      <Resource name="products" list={ProductList} />
+    </Admin>)
 }
 
 export default App

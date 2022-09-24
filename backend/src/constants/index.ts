@@ -3,9 +3,11 @@ export const MAX_PAGE_SIZE = 100
 
 export const CATEGORIES = {
     ESQUENTADOR: 'Esquentador',
-    TERMOACUMULADOR: 'Termoacumulador'
+    TERMOACUMULADOR: 'Termoacumulador',
+    BOMBA_DE_CALOR: 'Bomba de Calor'
 }
 
 export const PROVIDERS = {
-    WORTEN: 'Worten'
+    WORTEN: 'Worten',
+    LEROY_MERLIN: 'Leroy Merlin'
 }

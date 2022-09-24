@@ -16,6 +16,7 @@ const axiosConfig = {
 const categoryTranslated = {
     [CATEGORIES.ESQUENTADOR]: 'Esquentadores',
     [CATEGORIES.TERMOACUMULADOR]: 'Termoacumuladores',
+    [CATEGORIES.BOMBA_DE_CALOR]: 'Bombas de Calor'
 }
 
 export const run = async (urlBase: string, category: string): Promise<IProduct[]> => {

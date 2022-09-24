@@ -3,9 +3,11 @@ import prisma from '../../prisma/prisma-client'
 import { PROVIDERS } from '../constants'
 import { IProduct } from '../types/scraper'
 import * as wortenScraper from '../helpers/scrapers/worten'
+import * as leroyMerlinScraper from '../helpers/scrapers/leroyMerlin'
 
 const scrapers = {
-    [PROVIDERS.WORTEN]: wortenScraper
+    [PROVIDERS.WORTEN]: wortenScraper,
+    [PROVIDERS.LEROY_MERLIN]: leroyMerlinScraper
 }
 
 const upsertProduct = async ({ ean, name, price, discount, brand, category, provider, url }) => {

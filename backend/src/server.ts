@@ -1,14 +1,13 @@
-import dotenv from 'dotenv'
 import express, { Express, Request, Response, NextFunction } from 'express'
 import routes from './routes'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { runJobs } from './helpers/jobs'
 
+import dotenv from 'dotenv'
+dotenv.config()
 
 runJobs()
-
-dotenv.config()
 
 const app = express()
 const port = process.env.PORT
