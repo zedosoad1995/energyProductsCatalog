@@ -5,9 +5,11 @@ import bodyParser from 'body-parser'
 import { runJobs } from './helpers/jobs'
 
 import dotenv from 'dotenv'
+import { runAllScrapers } from './services/scraper.service'
 dotenv.config()
 
-runJobs()
+//runJobs()
+runAllScrapers()
 
 const app = express()
 const port = process.env.PORT

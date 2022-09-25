@@ -32,8 +32,6 @@ export const run = async (mainPageUrl: string, category: string) => {
         pageNum += 1
     }
 
-    console.log(urls)
-
     const products = []
 
     for (const url of urls) {
@@ -81,14 +79,12 @@ export const run = async (mainPageUrl: string, category: string) => {
                 price: Number(`${priceInt}.${priceDec.substring(2)}`),
                 name: firstLetterUpper(name.trim().split(/[\n\t]+/).at(-1)),
                 category,
-                provider: PROVIDERS.WORTEN
+                provider: PROVIDERS.LEROY_MERLIN
             }
             products.push(product)
-            console.log(product)
         } catch (err) {
             console.log(err)
         }
-
     }
     await browser.close()
     return products

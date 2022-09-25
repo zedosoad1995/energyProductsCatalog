@@ -82,9 +82,13 @@ const deleteNonExistingProducts = async (products, provider) => {
 
 export const runAllScrapers = async () => {
     for (const provider of Object.values(PROVIDERS)) {
+        console.log('Starting scraping provider:', provider)
         const products = await fetchDataFromProvider(provider)
-        const updatedProds = await Promise.all(products.map(p => upsertProduct(p)))
+        for (const p of products) {
+            await upsertProduct(p)
+        }
         await deleteNonExistingProducts(products, provider)
+        console.log('Ended scraping provider:', provider)
     }
 }
 
