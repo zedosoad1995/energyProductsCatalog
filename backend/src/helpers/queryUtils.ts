@@ -11,6 +11,8 @@ export const addPagination = (mainQuery: any, { page, limit }: { page?: string, 
 export const addSorting = (mainQuery: any, { sortBy, order }: { sortBy?: string, order?: string }) => {
     let newQuery = JSON.parse(JSON.stringify(mainQuery))
 
+    if (!['ean', 'name', 'price', 'brand', 'discount', 'createdAt'].includes(sortBy)) return newQuery
+
     if (!order) order = 'asc'
     if (!sortBy) sortBy = 'id'
 

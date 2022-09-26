@@ -1,5 +1,6 @@
 import { Prisma } from "@prisma/client"
 import prisma from "../../prisma/prisma-client"
+import { filterByProductsWithMultProviders, getRepeatedEans } from "../helpers/products"
 import { addFiltering, addPagination, addSorting } from "../helpers/queryUtils"
 
 export const getProducts = async (query) => {
@@ -32,11 +33,18 @@ export const getProducts = async (query) => {
         }
     }
 
+
     mainQuery = addFiltering(mainQuery, query)
     mainQuery = addPagination(mainQuery, query)
     mainQuery = addSorting(mainQuery, query)
 
-    const countQuery = addFiltering({}, query)
+    let countQuery = addFiltering({}, query)
+
+    if (query.hasMultProviders) {
+        const eans = await getRepeatedEans(query.hasMultProviders === 'true')
+        mainQuery = filterByProductsWithMultProviders(mainQuery, eans)
+        countQuery = filterByProductsWithMultProviders(countQuery, eans)
+    }
 
     const products = await prisma.product.findMany(mainQuery)
         .then(prods => prods.map(p => ({ ...p, category: p.category.name, provider: p.provider.name })))
