@@ -111,11 +111,14 @@ export const fetchDataFromProvider = async (provider: string): Promise<IProduct[
         }
     })
 
-    const products = (await Promise.all(
-        categories.map(async ({ url, category: { name: category } }) => await scraper.run(url, category))
-    )).flat()
+    const products = []
 
-    return products
+    for (const { url, category: { name: category } } of categories) {
+        const prod = await scraper.run(url, category)
+        products.push(prod)
+    }
+
+    return products.flat()
 }
 
 

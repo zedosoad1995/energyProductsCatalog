@@ -1,15 +1,13 @@
-import express, { Express, Request, Response, NextFunction } from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import routes from './routes'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { runJobs } from './helpers/jobs'
 
 import dotenv from 'dotenv'
-import { runAllScrapers } from './services/scraper.service'
 dotenv.config()
 
-//runJobs()
-runAllScrapers()
+runJobs()
 
 const app = express()
 const port = process.env.PORT

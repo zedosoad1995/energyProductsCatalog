@@ -8,6 +8,6 @@ export const CATEGORIES = {
 }
 
 export const PROVIDERS = {
-    WORTEN: 'Worten',
-    LEROY_MERLIN: 'Leroy Merlin'
+    LEROY_MERLIN: 'Leroy Merlin',
+    WORTEN: 'Worten'
 }
