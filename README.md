@@ -4,7 +4,7 @@ This project aims to daily scrape energy products from different providers, and 
 
 The project is currently live at: https://energy-products.netlify.app/
 
-![Page overview](imgs\energyProds.png "Overview")
+![Page overview](imgs/energyProds.png "Overview")
 
 ## Features
 
@@ -34,4 +34,4 @@ In the example below, we filter by "Products with multiple providers" and "Brand
 
 We can immediatly see the same products in the first 2 rows (same EAN), and observe how it is much cheaper for the provider "Leroy Merlin" in comparison to "Worten".
 
-![Page overview](imgs\filter_products.png "Overview")
+![Page overview](imgs/filter_products.png "Overview")
