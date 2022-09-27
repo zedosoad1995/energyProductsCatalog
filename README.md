@@ -34,4 +34,23 @@ In the example below, we filter by "Products with multiple providers" and "Brand
 
 We can immediatly see the same products in the first 2 rows (same EAN), and observe how it is much cheaper for the provider "Leroy Merlin" in comparison to "Worten".
 
-![Page overview](imgs/filter_products.png "Overview")
+![Filtering](imgs/filter_products.png "Filtering")
+
+## Scraping
+
+The scraping is done daily, with a cron job, and currently we are accessing 3 categories from 2 providers.
+
+Providers:
+
+- [Worten](https://www.worten.pt/)
+- [Leroy Merlin](https://www.leroymerlin.pt/)
+
+Categories:
+
+- Esquentadores
+- Termoacumuladores
+- Bombas de Calore
+
+Here is an example of the webpage of Leroy Merlin for the category "Esquentadores"
+
+![Leroy Merlin](imgs/leroy_merlin.png "Leroy Merlin")
