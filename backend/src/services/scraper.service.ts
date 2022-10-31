@@ -54,7 +54,10 @@ const upsertProduct = async ({ ean, name, price, discount, brand, category, prov
 const deleteNonExistingProducts = async (products, provider) => {
     const eanProviderConcats = products.map(p => `${p.ean + p.provider}`)
 
-    const idsNotInProducts = await prisma.$queryRaw`
+
+
+    const idsNotInProducts = eanProviderConcats.length > 0 ?
+        await prisma.$queryRaw`
     SELECT concated.id
     FROM(
         SELECT p.id AS id, CONCAT(p.ean, prov.name) AS eanProvider, prov.name AS itemProvider
@@ -64,7 +67,8 @@ const deleteNonExistingProducts = async (products, provider) => {
     ) AS concated
     WHERE concated.eanProvider NOT IN (${Prisma.join(eanProviderConcats)})
         AND concated.itemProvider IN (${provider})`
-        .then((res: any) => res.map(r => r.id))
+            .then((res: any) => res.map(r => r.id))
+        : []
 
     prisma.product.updateMany({
         where: {
@@ -114,8 +118,12 @@ export const fetchDataFromProvider = async (provider: string): Promise<IProduct[
     const products = []
 
     for (const { url, category: { name: category } } of categories) {
-        const prod = await scraper.run(url, category)
-        products.push(prod)
+        try {
+            const prod = await scraper.run(url, category)
+            products.push(prod)
+        } catch (err) {
+            console.log(err.message)
+        }
     }
 
     return products.flat()

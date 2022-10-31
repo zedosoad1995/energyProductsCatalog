@@ -7,6 +7,7 @@ export const getManyProducts = async (req: Request, res: Response, next: NextFun
     try {
         resp = await getProducts(req.query)
     } catch (err) {
+        console.log(err)
         return next(err)
     }
     res.status(200).json({ data: resp })

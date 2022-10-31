@@ -36,9 +36,6 @@ RUN set -x \
     ttf-freefont \
     chromium
 
-RUN ls -a
-RUN pwd
-
 ARG PORT
 
 EXPOSE ${PORT}

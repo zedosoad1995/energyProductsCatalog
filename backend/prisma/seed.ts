@@ -54,8 +54,13 @@ async function main() {
             provider: PROVIDERS.LEROY_MERLIN
         },
         {
-            url: 'https://www.leroymerlin.pt/pesquisa/bomba%20de%20calor?orderby=priceup&price-filter=0%2C99999&price-filter-low=0&price-filter-high=99999&selectorderby=bestresult&filterprice=true',
+            url: 'https://www.leroymerlin.pt/produtos/aquecimento-e-climatizacao/aquecimento-de-agua/bombas-de-calor?orderby=priceup&price-filter=0%2C99999&price-filter-low=0&price-filter-high=99999&selectorderby=bestresult&filterprice=true',
             category: CATEGORIES.BOMBA_DE_CALOR,
+            provider: PROVIDERS.LEROY_MERLIN
+        },
+        {
+            url: 'https://www.leroymerlin.pt/produtos/aquecimento-e-climatizacao/aquecimento-central/caldeiras/caldeiras-a-gas?orderby=priceup&price-filter=0%2C99999&price-filter-low=0&price-filter-high=99999&facets%5B%5D=ATTI_00898&facets%5B%5D=ATTI_00949&facets%5B%5D=ATTI_00952&facets%5B%5D=ATT_20406&facets%5B%5D=ATTI_00963&facets%5B%5D=ATT_00054&facets%5B%5D=ATT_00053&facets%5B%5D=ATT_00055&facets%5B%5D=ATTI_01110&facets%5B%5D=ATT_00628&selectorderby=relevance&filterprice=true',
+            category: CATEGORIES.CALDEIRA_A_GAS,
             provider: PROVIDERS.LEROY_MERLIN
         }
     ]
