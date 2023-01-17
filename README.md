@@ -2,7 +2,7 @@
 
 This project aims to daily scrape energy products from different providers, and display them in a centralized way.
 
-The project is currently live at: https://energy-products.netlify.app/
+The project is currently live at: https://energy-products.netlify.app/ (Page not working properly anymore)
 
 ![Page overview](imgs/energyProds.png "Overview")
 
